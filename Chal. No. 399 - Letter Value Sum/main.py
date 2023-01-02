@@ -13,8 +13,6 @@ lettersum("microspectrophotometries") => 317
 """
 
 
-
-
 wrkng_dir = "C:\\Users\\rootp\\Documents\\Code\\Python\\DailyProgrammer\\Chal. No. 399 - Letter Value Sum"
 data_file = "enable1.txt"
 
@@ -66,10 +64,8 @@ try:
     fd = open(wrkng_dir + "\\" + data_file)
 except FileNotFoundError:
     print("FileNotFoundError: No such file or directory: " + data_file)
-   
-    
-    
-    
+
+
 # Loop input_data and populate information
 """ word_struct = {} - Data Structure
     
