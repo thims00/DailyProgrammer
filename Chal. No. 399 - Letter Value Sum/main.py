@@ -16,7 +16,7 @@ lettersum("microspectrophotometries") => 317
 wrkng_dir = "C:\\Users\\rootp\\Documents\\Code\\Python\\DailyProgrammer\\Chal. No. 399 - Letter Value Sum"
 data_file = "enable1.txt"
 
-debug = True
+debug = False
 debug_file="debug.txt"
 
 
@@ -144,12 +144,31 @@ print(ceil)
 """ 4). zyzzyva and biodegradabilities have the same letter sum as each other 
         (151), and their lengths differ by 11 letters. Find the other pair of 
         words with the same letter sum whose lengths differ by 11 letters."""
-#for x_word in word_struct['151'][1]:
-#    for word in word_struct['151'][1]:
-#        if len(word) > 11:
-            
+# TODO: This approach is ignorant, takes awhile and very redundant
+smllr = []
+lrgr = []
+for letter_sum in word_struct:
+    for eleven in word_struct[letter_sum][1]:
+        elev_len = len(eleven)
         
-      
+        for word in word_struct[letter_sum][1]:
+            word_len = len(word)
+            
+
+            if (len(word) - len(eleven)) == 11:
+                smllr.append(eleven)
+                lrgr.append(word)
+
+print("4) Find the other pair of words with the same letter sum ")
+print("   whose lengths differ by 11 letters: ", end="")
+print(str(smllr[1]) + " and " + str(lrgr[1]))
+
+if debug:
+    print("No. 4 Debug:")
+    print(smllr)
+    print(lrgr)
+
+
 """ 5). cytotoxicity and unreservedness have the same letter sum as each other 
         (188), and they have no letters in common. Find a pair of words that 
         have no letters in common, and that have the same letter sum, which is 
