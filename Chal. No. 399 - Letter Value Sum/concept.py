@@ -1,5 +1,4 @@
 #!/usr/bin/env Python3
-
 """
 Assign every lowercase letter a value, from 1 for a to 26 for z. 
 Given a string of lowercase letters, find the sum of the values of the letters in the string.
@@ -13,16 +12,12 @@ lettersum("microspectrophotometries") => 317
 """
 
 
-
-
 wrkng_dir = "C:\\Users\\rootp\\Documents\\Code\\Python\\DailyProgrammer\\Chal. No. 399 - Letter Value Sum"
 data_file = "sample.txt"
 
 alph = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10, \
         'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15, 'p': 16, 'q': 17, 'r': 18, 's': 19, \
         't': 20, 'u': 21, 'v': 22, 'w': 23, 'x': 24, 'y': 25, 'z': 26}
-
-input_data = ["", "a", "z", "cab", "excellent", "microspectrophotometries", "zyzzyva", "biodegradabilities"]
 
 
 
