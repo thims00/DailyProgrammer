@@ -13,20 +13,21 @@ lettersum("microspectrophotometries") => 317
 """
 
 
-import os
-import sys
+
+
+wrkng_dir = "C:\\Users\\rootp\\Documents\\Code\\Python\\DailyProgrammer\\Chal. No. 399 - Letter Value Sum"
+data_file = "sample.txt"
 
 alph = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10, \
-        'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15, 'p': 16, 'q': 17, 'r': 18, 's': 19, 't': 20, 'u': 21, 'v': 22, \
-        'w': 23, 'x': 24, 'y': 25, 'z': 26}
+        'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15, 'p': 16, 'q': 17, 'r': 18, 's': 19, \
+        't': 20, 'u': 21, 'v': 22, 'w': 23, 'x': 24, 'y': 25, 'z': 26}
 
-input_data = ["", "a", "z", "cab", "excellent", "microspectrophotometries"]
-
-a = []
+input_data = ["", "a", "z", "cab", "excellent", "microspectrophotometries", "zyzzyva", "biodegradabilities"]
 
 
 
-def sum_of_chars(char_string):
+
+def lettersum(char_string):
     """ Loop over the chars of char_string, sum up the numeric representation, and return.
     
             Returns:
@@ -56,6 +57,10 @@ def sum_of_chars(char_string):
     
 
 # Loop input_data and print out string sums
-i = 0
-for i in range(len(input_data)):
-    print(input_data[i] + " => " + str(sum_of_chars(input_data[i])))
+fd = open(wrkng_dir + "\\" + data_file, "r")
+
+for word in fd: #range(len(input_data)):
+    word = word.strip("\n")
+    print(word + " => " + str(lettersum(word)))
+
+fd.close()
