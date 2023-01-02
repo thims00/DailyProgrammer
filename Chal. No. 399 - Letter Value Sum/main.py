@@ -79,7 +79,7 @@ odd_lttrs = 0
 
 
 for word in fd:
-    word_sum = lettersum(word)
+    word_sum = lettersum(word.strip("\n"))
     
     """ 1). microspectrophotometries is the only word with a letter sum of 317. 
             Find the only word with a letter sum of 319."""
@@ -103,7 +103,7 @@ for word in fd:
     
     
     
-""" 2). How many words have an odd letter sum?"""
+""" 2). How many words have an odd letter sum? - postprocessing"""
 print("2) How many words have an odd letter Sum: ", end="")
 print(odd_lttrs)
     
@@ -116,11 +116,11 @@ ceil_id = 0
 
 # Loop data structure and seek most common letter sum
 for key in word_struct.keys():
-    if data_struct[key][0] > ceil:
-        ceil = data_struct[key][0]
+    if word_struct[key][0] > ceil:
+        ceil = word_struct[key][0]
         ceil_id = key
                 
-print("2) What letter sum is most common, and how many words have it: ")
+print("3) What letter sum is most common, and how many words have it: ")
 print("    Most common: ", end="")
 print(ceil_id)
 print("    Word Qty: ", end="")
@@ -130,9 +130,9 @@ print(ceil)
 """ 4). zyzzyva and biodegradabilities have the same letter sum as each other 
         (151), and their lengths differ by 11 letters. Find the other pair of 
         words with the same letter sum whose lengths differ by 11 letters."""
-for x_word in data_structp['151'][1]:
-    for word in data_struct['151'][1]:
-        if len(word) > 11:
+#for x_word in word_struct['151'][1]:
+#    for word in word_struct['151'][1]:
+#        if len(word) > 11:
             
         
       
@@ -145,7 +145,7 @@ for x_word in data_structp['151'][1]:
 
 
 """ 6). The list of word { geographically, eavesdropper, woodworker, oxymorons } 
-contains 4 words. Each word in the list has both a different number of letters, 
-and a different letter sum. The list is sorted both in descending order of word 
-length, and ascending order of letter sum. What's the longest such list you can 
-find?"""
+        contains 4 words. Each word in the list has both a different number of letters, 
+        and a different letter sum. The list is sorted both in descending order of word 
+        length, and ascending order of letter sum. What's the longest such list you can 
+        find?"""
