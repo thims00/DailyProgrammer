@@ -16,6 +16,9 @@ lettersum("microspectrophotometries") => 317
 wrkng_dir = "C:\\Users\\rootp\\Documents\\Code\\Python\\DailyProgrammer\\Chal. No. 399 - Letter Value Sum"
 data_file = "enable1.txt"
 
+debug = False
+debug_file="debug.txt"
+
 
 alph = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10, \
         'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15, 'p': 16, 'q': 17, 'r': 18, 's': 19, \
@@ -61,7 +64,9 @@ def lettersum(char_string):
 """
 # Open our data file and error handle
 try:
-    fd = open(wrkng_dir + "\\" + data_file)
+    fd = open(wrkng_dir + "\\" + data_file, "r")
+    if debug:
+        bd = open(wrkng_dir + "\\" + debug_file, "w")
 except FileNotFoundError:
     print("FileNotFoundError: No such file or directory: " + data_file)
 
@@ -94,15 +99,21 @@ for word in fd:
     
     
     # Populate our data structure for post processing
-    if not word_struct.get(word_sum):
+    if not word_struct.get(str(word_sum)):
         word_struct[str(word_sum)] = [0, []]
         
     word_struct[str(word_sum)][0] += 1
     word_struct[str(word_sum)][1].append(word)
+
+
+    if debug:
+        bd.write("\"" + str(word_sum) + "\"")
+        bd.write(" => [" + str(word_struct[str(word_sum)][0]))
+        bd.write(", " + str(word_struct[str(word_sum)][1]) + "]")
         
-    
-    
-    
+
+
+
 """ 2). How many words have an odd letter sum? - postprocessing"""
 print("2) How many words have an odd letter Sum: ", end="")
 print(odd_lttrs)
@@ -115,7 +126,7 @@ ceil = 0
 ceil_id = 0
 
 # Loop data structure and seek most common letter sum
-for key in word_struct.keys():
+for key in word_struct.keys():  
     if word_struct[key][0] > ceil:
         ceil = word_struct[key][0]
         ceil_id = key
@@ -149,3 +160,11 @@ print(ceil)
         and a different letter sum. The list is sorted both in descending order of word 
         length, and ascending order of letter sum. What's the longest such list you can 
         find?"""
+        
+        
+        
+        
+        
+if debug:
+    bd.close()
+fd.close()
