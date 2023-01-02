@@ -154,7 +154,6 @@ for letter_sum in word_struct:
         for word in word_struct[letter_sum][1]:
             word_len = len(word)
             
-
             if (len(word) - len(eleven)) == 11:
                 smllr.append(eleven)
                 lrgr.append(word)

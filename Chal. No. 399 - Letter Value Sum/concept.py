@@ -36,7 +36,7 @@ def lettersum(char_string):
         str(char_string)
         
     except:
-        print("TypeError: sum_of_chars expected string, got other.")
+        print("TypeError: lettersum() expected string, got other.")
         return 1
 
     # Loop the provided string and add sums
