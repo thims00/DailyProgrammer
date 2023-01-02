@@ -16,7 +16,7 @@ lettersum("microspectrophotometries") => 317
 wrkng_dir = "C:\\Users\\rootp\\Documents\\Code\\Python\\DailyProgrammer\\Chal. No. 399 - Letter Value Sum"
 data_file = "enable1.txt"
 
-debug = False
+debug = True
 debug_file="debug.txt"
 
 
@@ -85,7 +85,8 @@ odd_lttrs = 0
 
 for word in fd:
     word_sum = lettersum(word.strip("\n"))
-    
+
+
     """ 1). microspectrophotometries is the only word with a letter sum of 317. 
             Find the only word with a letter sum of 319."""
     if word_sum == 319:
@@ -103,14 +104,16 @@ for word in fd:
         word_struct[str(word_sum)] = [0, []]
         
     word_struct[str(word_sum)][0] += 1
-    word_struct[str(word_sum)][1].append(word)
+    word_struct[str(word_sum)][1].append(word.strip("\n"))
 
 
-    if debug:
-        bd.write("\"" + str(word_sum) + "\"")
-        bd.write(" => [" + str(word_struct[str(word_sum)][0]))
-        bd.write(", " + str(word_struct[str(word_sum)][1]) + "]")
-        
+if debug:
+    for key in word_struct.keys():
+        bd.write("\"" + str(key) + "\"")
+        bd.write(" => [" + str(word_struct[str(key)][0]))
+        bd.write(", " + str(word_struct[str(key)][1]) + "]")
+        bd.write("\n")
+
 
 
 
