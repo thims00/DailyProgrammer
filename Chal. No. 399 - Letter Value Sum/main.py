@@ -39,23 +39,15 @@ def lettersum(char_string):
     """
     char_sum = 0
 
-    # Must be a string type
     try:
-        str(char_string)
-        
-    except:
-        print("TypeError: lettersum() expects string, got other.")
-        return 1
-
-    # Loop the provided string and add sums
-    for i in range(len(char_string)):
-        # Ensure characters are acceptable chars in alph dict
-        try:
+        # Loop the provided string and add sums
+        for i in range(len(char_string)):
             char_sum += alph[char_string[i]]
-        except:
-            print("TypeError: provided string contains unacceptable characters.")
-            return 1
-            
+        
+    except KeyError:
+        print("TypeError: lettersum() received unexpected character. Index out of range.")
+        return 1
+                
     return char_sum
     
 
